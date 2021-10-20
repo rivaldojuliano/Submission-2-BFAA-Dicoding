@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Github User App</string>
     <string name="github_user_app">Github User App</string>
-    <string name="search_user">Search user...</string>
+    <string name="search_user">Search user…</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

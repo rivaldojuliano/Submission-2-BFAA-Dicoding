@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -14,6 +15,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "GITHUB_TOKEN", '"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"')
     }
 
     buildTypes {
@@ -28,6 +31,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
     }
 }
 
@@ -48,4 +54,15 @@ dependencies {
 
 //    circle image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+//    retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+//    okhttp
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+
+//    glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 }
