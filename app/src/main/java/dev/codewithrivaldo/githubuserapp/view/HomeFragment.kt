@@ -1,5 +1,6 @@
 package dev.codewithrivaldo.githubuserapp.view
 
+import android.app.Dialog
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
@@ -24,6 +25,8 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: UserAdapter
     private lateinit var viewModel: SearchViewModel
 
+    private var progressBar: Dialog? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,6 +39,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initView()
         searchUser()
         showRecyclerView()
         getUser()
@@ -49,7 +53,8 @@ class HomeFragment : Fragment() {
         searchView.queryHint = resources.getString(R.string.search_user)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String): Boolean {
-               viewModel.findUser(query)
+                showProgress()
+                viewModel.findUser(query)
                 return true
             }
 
@@ -62,9 +67,11 @@ class HomeFragment : Fragment() {
     private fun getUser() {
         viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory()).get(SearchViewModel::class.java)
         viewModel.items.observe(requireActivity(), {
-        adapter.setData(it as ArrayList<ItemsItem>)
+            adapter.setData(it as ArrayList<ItemsItem>)
+            dismissProgress()
         })
     }
+
 
     private fun showRecyclerView() {
         binding.apply {
@@ -75,6 +82,26 @@ class HomeFragment : Fragment() {
             rvUser.setHasFixedSize(true)
             rvUser.adapter = adapter
         }
+    }
+
+    private fun initView() {
+        progressBar = Dialog(requireContext())
+        val dialogLayout = layoutInflater.inflate(R.layout.progress_bar, null)
+
+        progressBar?.let {
+            it.setContentView(dialogLayout)
+            it.setCancelable(false)
+            it.window?.setBackgroundDrawableResource(R.color.transparent)
+        }
+    }
+
+
+    fun showProgress() {
+        progressBar?.show()
+    }
+
+    private fun dismissProgress() {
+        progressBar?.dismiss()
     }
 
     override fun onDestroy() {

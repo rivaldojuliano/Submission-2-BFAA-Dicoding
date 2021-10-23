@@ -16,9 +16,9 @@ class SearchViewModel: ViewModel() {
     private val _items = MutableLiveData<List<ItemsItem>>()
     val items: LiveData<List<ItemsItem>> = _items
 
-     fun findUser(username: String) {
+     fun findUser(q: String) {
+        val client = ApiConfig.getApiService().getSearchUser(q)
 
-        val client = ApiConfig.getApiService().getSearchUser(username)
         client.enqueue(object : Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if (response.isSuccessful) {
