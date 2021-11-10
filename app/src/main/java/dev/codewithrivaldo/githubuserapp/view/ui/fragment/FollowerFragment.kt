@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.codewithrivaldo.githubuserapp.R
 import dev.codewithrivaldo.githubuserapp.databinding.FragmentFollowerBinding
@@ -20,7 +20,7 @@ class FollowerFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var adapter: FollowAdapter
-    private lateinit var viewModel: FollowersViewModel
+    private val viewModel by viewModels<FollowersViewModel>()
 
     private var progressBar: Dialog? = null
 
@@ -53,7 +53,6 @@ class FollowerFragment : Fragment() {
 
     private fun getFollowers() {
         val followers = activity?.intent?.getParcelableExtra<ItemsItem>(EXTRA_USER) as ItemsItem
-        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(FollowersViewModel::class.java)
 
         followers.login?.let {
             showProgress()
