@@ -83,7 +83,6 @@ class HomeFragment : Fragment() {
         })
     }
 
-
     private fun showRecyclerView() {
         binding.apply {
             adapter = UserAdapter()
