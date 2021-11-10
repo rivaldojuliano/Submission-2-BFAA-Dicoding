@@ -2,6 +2,13 @@
     <string name="app_name">Github User App</string>
     <string name="github_user_app">Github User App</string>
     <string name="search_user">Search user…</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="public_repository">%s\nRepository</string>
+    <string name="follower">%s\nFollower</string>
+    <string name="following">%s\nFollowing</string>
+    <string name="tab_1">Follower</string>
+    <string name="tab_2">Following</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

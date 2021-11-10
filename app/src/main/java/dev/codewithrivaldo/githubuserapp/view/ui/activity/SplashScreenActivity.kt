@@ -1,4 +1,4 @@
-package dev.codewithrivaldo.githubuserapp.view
+package dev.codewithrivaldo.githubuserapp.view.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler(mainLooper).postDelayed({
-            val mIntent = Intent(this, MainActivity::class.java)
+            val mIntent = Intent(this, ContainerActivity::class.java)
             startActivity(mIntent)
             finish()
         }, 4000)

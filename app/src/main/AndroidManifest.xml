@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.codewithrivaldo.githubuserapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,10 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUserApp">
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.ui.activity.DetailActivity"
+            android:exported="false"
+            android:label="@string/title_activity_detail"
+            android:theme="@style/Theme.GithubUserApp.NoActionBar" />
+        <activity
+            android:name=".view.ui.activity.ContainerActivity"
             android:exported="true" />
         <activity
-            android:name=".view.SplashScreenActivity"
+            android:name=".view.ui.activity.SplashScreenActivity"
+            android:theme="@style/NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

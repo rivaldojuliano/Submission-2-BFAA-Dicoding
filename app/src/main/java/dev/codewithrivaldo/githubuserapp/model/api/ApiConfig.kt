@@ -1,4 +1,4 @@
-package dev.codewithrivaldo.githubuserapp.model.retrofit
+package dev.codewithrivaldo.githubuserapp.model.api
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

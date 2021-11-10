@@ -1,4 +1,4 @@
-package dev.codewithrivaldo.githubuserapp.model.adapter
+package dev.codewithrivaldo.githubuserapp.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,10 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import dev.codewithrivaldo.githubuserapp.databinding.ItemRowUserBinding
-import dev.codewithrivaldo.githubuserapp.model.data.ItemsItem
+import dev.codewithrivaldo.githubuserapp.model.data.remote.ItemsItem
 
-class UserAdapter: RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
-
+class FollowAdapter: RecyclerView.Adapter<FollowAdapter.FollowViewHolder>() {
     private val listUser = ArrayList<ItemsItem>()
 
     fun setData(items: ArrayList<ItemsItem>) {
@@ -18,7 +17,7 @@ class UserAdapter: RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class UserViewHolder(private val binding: ItemRowUserBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class FollowViewHolder(private val binding: ItemRowUserBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(itemsItem: ItemsItem) {
             with(binding) {
                 Glide.with(itemView.context)
@@ -29,17 +28,17 @@ class UserAdapter: RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
                 tvUsername.text = itemsItem.login
             }
         }
+
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowViewHolder {
         val binding = ItemRowUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return UserViewHolder(binding)
+        return FollowViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FollowViewHolder, position: Int) {
         holder.bind(listUser[position])
     }
 
     override fun getItemCount(): Int = listUser.size
-
 }

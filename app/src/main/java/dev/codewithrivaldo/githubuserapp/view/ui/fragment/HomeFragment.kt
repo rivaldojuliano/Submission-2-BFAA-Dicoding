@@ -1,8 +1,9 @@
-package dev.codewithrivaldo.githubuserapp.view
+package dev.codewithrivaldo.githubuserapp.view.ui.fragment
 
 import android.app.Dialog
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +14,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.codewithrivaldo.githubuserapp.R
 import dev.codewithrivaldo.githubuserapp.databinding.FragmentHomeBinding
-import dev.codewithrivaldo.githubuserapp.model.adapter.UserAdapter
-import dev.codewithrivaldo.githubuserapp.model.data.ItemsItem
+import dev.codewithrivaldo.githubuserapp.model.data.remote.ItemsItem
+import dev.codewithrivaldo.githubuserapp.view.adapter.UserAdapter
+import dev.codewithrivaldo.githubuserapp.view.ui.activity.DetailActivity
 import dev.codewithrivaldo.githubuserapp.viewmodel.SearchViewModel
 
 class HomeFragment : Fragment() {
@@ -43,6 +45,13 @@ class HomeFragment : Fragment() {
         searchUser()
         showRecyclerView()
         getUser()
+
+        adapter.setOnItemClickCallback(
+            object : UserAdapter.OnItemClickCallback {
+                override fun onItemClicked(itemsItem: ItemsItem) {
+                    showSelectedUser(itemsItem)
+                }
+            })
     }
 
     private fun searchUser() {
@@ -51,7 +60,7 @@ class HomeFragment : Fragment() {
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
         searchView.queryHint = resources.getString(R.string.search_user)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 showProgress()
                 viewModel.findUser(query)
@@ -65,10 +74,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun getUser() {
-        viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory()).get(SearchViewModel::class.java)
+        viewModel =  ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory()).get(SearchViewModel::class.java)
         viewModel.items.observe(requireActivity(), {
-            adapter.setData(it as ArrayList<ItemsItem>)
-            dismissProgress()
+            if (it != null) {
+                adapter.setData(it)
+                dismissProgress()
+            }
         })
     }
 
@@ -84,6 +95,12 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun showSelectedUser(data: ItemsItem) {
+        val mIntent = Intent(context, DetailActivity::class.java)
+        mIntent.putExtra(DetailActivity.EXTRA_USER, data)
+        startActivity(mIntent)
+    }
+
     private fun initView() {
         progressBar = Dialog(requireContext())
         val dialogLayout = layoutInflater.inflate(R.layout.progress_bar, null)
@@ -96,7 +113,7 @@ class HomeFragment : Fragment() {
     }
 
 
-    fun showProgress() {
+    private fun showProgress() {
         progressBar?.show()
     }
 
