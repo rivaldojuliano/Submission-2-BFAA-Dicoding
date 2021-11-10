@@ -3,9 +3,14 @@
     <string name="app_name">Github User App</string>
     <string name="search_user">Cari pengguna…</string>
     <string name="title_activity_detail">DetailActivity</string>
+    <string name="login">User Name: %s</string>
+    <string name="name">Name: %s</string>
+    <string name="company">Company : %s</string>
+    <string name="location">Location : %s</string>
     <string name="public_repository">%s\nRepositori</string>
     <string name="follower">%s\nPengikut</string>
     <string name="following">%s\nMengikuti</string>
     <string name="tab_1">Pengikut</string>
     <string name="tab_2">Mengikuti</string>
+    <string name="setting_language">Pengaturan Bahasa</string>
 </resources>

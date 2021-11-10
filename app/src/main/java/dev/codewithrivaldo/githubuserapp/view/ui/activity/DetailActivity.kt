@@ -50,9 +50,7 @@ class DetailActivity : AppCompatActivity() {
     private fun getDetailUser() {
         val user = intent.getParcelableExtra<ItemsItem>(EXTRA_USER) as ItemsItem
 
-        user.login?.let {
-            viewModel.getUserDetail(it)
-        }
+        user.login?.let { viewModel.getUserDetail(it) }
 
         viewModel.detailUser.observe(this, {
             if (it != null) {
@@ -62,10 +60,10 @@ class DetailActivity : AppCompatActivity() {
                         .apply(RequestOptions().override(100,100))
                         .into(civImage)
 
-                    tvUsername.text = it.login
-                    tvName.text = it.name
-                    tvLocation.text = it.location
-                    tvCompany.text = it.company
+                    tvUsername.text = getString(R.string.login, it.login)
+                    tvName.text = getString(R.string.name, it.name)
+                    tvLocation.text = getString(R.string.location, it.location)
+                    tvCompany.text = getString(R.string.company, it.company)
                     tvRepository.text = getString(R.string.public_repository, it.publicRepository.toString())
                     tvFollower.text = getString(R.string.follower, it.follower.toString())
                     tvFollowing.text = getString(R.string.following, it.following.toString())
