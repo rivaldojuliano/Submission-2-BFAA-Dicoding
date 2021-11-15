@@ -59,9 +59,9 @@ class DetailActivity : AppCompatActivity() {
                         .into(civImage)
 
                     tvUsername.text = getString(R.string.login, it.login)
-                    tvName.text = getString(R.string.name, it.name)
-                    tvLocation.text = getString(R.string.location, it.location)
-                    tvCompany.text = getString(R.string.company, it.company)
+                    tvName.text = getString(R.string.name, it.name ?: "-")
+                    tvLocation.text = getString(R.string.location, it.location ?: "-")
+                    tvCompany.text = getString(R.string.company, it.company ?: "-")
                     tvRepository.text = getString(R.string.public_repository, it.publicRepository.toString())
                     tvFollower.text = getString(R.string.follower, it.follower.toString())
                     tvFollowing.text = getString(R.string.following, it.following.toString())

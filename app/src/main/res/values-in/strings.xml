@@ -13,4 +13,7 @@
     <string name="tab_1">Pengikut</string>
     <string name="tab_2">Mengikuti</string>
     <string name="setting_language">Pengaturan Bahasa</string>
+    <string name="user_not_found">Pengguna tidak ditemukan</string>
+    <string name="not_have_followers">Tidak Punya Pengikut</string>
+    <string name="not_following_anyone">Tidak Mengikuti Siapapun</string>
 </resources>

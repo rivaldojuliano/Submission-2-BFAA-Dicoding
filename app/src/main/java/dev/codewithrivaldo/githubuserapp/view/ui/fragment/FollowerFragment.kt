@@ -60,7 +60,13 @@ class FollowerFragment : Fragment() {
         }
 
         viewModel.followers.observe(viewLifecycleOwner, {
-            if (it != null) {
+            if (it.isNullOrEmpty()) {
+                binding.rvFollower.visibility = View.GONE
+                showMessage(true)
+                dismissProgress()
+            } else {
+                binding.rvFollower.visibility = View.VISIBLE
+                showMessage(false)
                 adapter.setData(it)
                 dismissProgress()
             }
@@ -85,6 +91,15 @@ class FollowerFragment : Fragment() {
 
     private fun dismissProgress() {
         progressBar?.dismiss()
+    }
+
+    private fun showMessage(visible: Boolean) {
+        if (visible) {
+            binding.tvNotHaveFollowers.visibility = View.VISIBLE
+            binding.tvNotHaveFollowers.text = resources.getString(R.string.not_have_followers)
+        } else {
+            binding.tvNotHaveFollowers.visibility = View.GONE
+        }
     }
 
     override fun onDestroy() {

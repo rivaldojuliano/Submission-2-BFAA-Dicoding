@@ -75,7 +75,13 @@ class HomeFragment : Fragment() {
 
     private fun getUser() {
         viewModel.items.observe(requireActivity(), {
-            if (it != null) {
+            if (it.isNullOrEmpty()) {
+                binding.rvUser.visibility = View.GONE
+                showMessage(true)
+                dismissProgress()
+            } else {
+                binding.rvUser.visibility = View.VISIBLE
+                showMessage(false)
                 adapter.setData(it)
                 dismissProgress()
             }
@@ -117,6 +123,19 @@ class HomeFragment : Fragment() {
 
     private fun dismissProgress() {
         progressBar?.dismiss()
+    }
+
+    private fun showMessage(visible: Boolean) {
+        binding.apply {
+            if (visible) {
+                imgSearchNotFound.visibility = View.VISIBLE
+                tvNotFound.visibility = View.VISIBLE
+                tvNotFound.text = resources.getString(R.string.user_not_found)
+            } else {
+                imgSearchNotFound.visibility = View.GONE
+                tvNotFound.visibility = View.GONE
+            }
+        }
     }
 
     override fun onDestroy() {
