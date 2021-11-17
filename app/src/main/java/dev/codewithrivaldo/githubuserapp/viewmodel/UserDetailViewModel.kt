@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import dev.codewithrivaldo.githubuserapp.model.api.ApiConfig
-import dev.codewithrivaldo.githubuserapp.model.data.remote.ItemsItem
+import dev.codewithrivaldo.githubuserapp.model.data.source.remote.ItemsItem
+import dev.codewithrivaldo.githubuserapp.model.data.source.remote.network.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

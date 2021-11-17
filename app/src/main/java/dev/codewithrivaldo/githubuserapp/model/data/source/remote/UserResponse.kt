@@ -1,4 +1,4 @@
-package dev.codewithrivaldo.githubuserapp.model.data.remote
+package dev.codewithrivaldo.githubuserapp.model.data.source.remote
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

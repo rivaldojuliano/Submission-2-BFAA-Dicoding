@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import dev.codewithrivaldo.githubuserapp.databinding.ItemRowUserBinding
-import dev.codewithrivaldo.githubuserapp.model.data.remote.ItemsItem
+import dev.codewithrivaldo.githubuserapp.model.data.source.remote.ItemsItem
 
 class UserAdapter: RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 

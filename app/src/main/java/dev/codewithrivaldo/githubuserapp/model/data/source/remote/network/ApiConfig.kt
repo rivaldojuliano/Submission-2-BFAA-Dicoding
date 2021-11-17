@@ -1,4 +1,4 @@
-package dev.codewithrivaldo.githubuserapp.model.api
+package dev.codewithrivaldo.githubuserapp.model.data.source.remote.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

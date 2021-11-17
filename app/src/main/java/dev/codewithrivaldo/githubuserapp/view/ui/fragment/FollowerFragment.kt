@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.codewithrivaldo.githubuserapp.R
 import dev.codewithrivaldo.githubuserapp.databinding.FragmentFollowerBinding
-import dev.codewithrivaldo.githubuserapp.model.data.remote.ItemsItem
+import dev.codewithrivaldo.githubuserapp.model.data.source.remote.ItemsItem
 import dev.codewithrivaldo.githubuserapp.view.adapter.FollowAdapter
 import dev.codewithrivaldo.githubuserapp.viewmodel.FollowersViewModel
 

@@ -14,7 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.codewithrivaldo.githubuserapp.R
 import dev.codewithrivaldo.githubuserapp.databinding.FragmentHomeBinding
-import dev.codewithrivaldo.githubuserapp.model.data.remote.ItemsItem
+import dev.codewithrivaldo.githubuserapp.model.data.source.remote.ItemsItem
 import dev.codewithrivaldo.githubuserapp.view.adapter.UserAdapter
 import dev.codewithrivaldo.githubuserapp.view.ui.activity.DetailActivity
 import dev.codewithrivaldo.githubuserapp.viewmodel.SearchViewModel

@@ -10,7 +10,7 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dev.codewithrivaldo.githubuserapp.R
 import dev.codewithrivaldo.githubuserapp.databinding.ActivityDetailBinding
-import dev.codewithrivaldo.githubuserapp.model.data.remote.ItemsItem
+import dev.codewithrivaldo.githubuserapp.model.data.source.remote.ItemsItem
 import dev.codewithrivaldo.githubuserapp.view.adapter.SectionPagerAdapter
 import dev.codewithrivaldo.githubuserapp.viewmodel.UserDetailViewModel
 import kotlin.math.abs

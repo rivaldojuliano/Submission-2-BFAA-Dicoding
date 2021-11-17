@@ -1,8 +1,8 @@
-package dev.codewithrivaldo.githubuserapp.model.api
+package dev.codewithrivaldo.githubuserapp.model.data.source.remote.network
 
 import dev.codewithrivaldo.githubuserapp.BuildConfig
-import dev.codewithrivaldo.githubuserapp.model.data.remote.ItemsItem
-import dev.codewithrivaldo.githubuserapp.model.data.remote.UserResponse
+import dev.codewithrivaldo.githubuserapp.model.data.source.remote.ItemsItem
+import dev.codewithrivaldo.githubuserapp.model.data.source.remote.UserResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
